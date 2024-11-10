@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.Suites"
+             Title="Suites" NavigationPage.HasNavigationBar="False" Background="#0e1a40">
+    
+    <!--Grid para dividir a tela em 2 partes Carousel e o botão-->
+
+    <Grid RowDefinitions="*, Auto">
+
+        <CarouselView Grid.Row="0" ItemsSource="{Binding}" Loop="False">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView>
+
+
+                        <StackLayout Padding="10" VerticalOptions="StartAndExpand">
+
+                            <!--Imagens das suites -->
+                            <Frame HasShadow="True" BorderColor="Transparent" CornerRadius="20" Padding="0" Margin="10">
+                                <Image Source="{Binding ImageSource}" Aspect="AspectFill" HeightRequest="300"/>
+
+                            </Frame>
+                            <!--nomes das suítes-->
+                            <Label Text="{Binding Description}"
+                               FontFamily="Kalam"
+                               FontSize="25"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               TextColor="White"
+                               Margin="0,5,0,0"/>
+
+                            <!--Descrição das suítes-->
+                            <Frame HasShadow="True" BorderColor="Transparent" CornerRadius="10" Padding="10" 
+                                   Margin="5" BackgroundColor="#222f5b">
+
+                                <Grid ColumnDefinitions="Auto, *, Auto, *" RowDefinitions="Auto, Auto, Auto"
+                                      HorizontalOptions="CenterAndExpand"
+                                      VerticalOptions="CenterAndExpand"
+                                      ColumnSpacing="20">
+                                    <!--coluna esquerda com os icones e descrições de cada suite-->
+
+                                    <Image Source="{Binding LeftIcon1}" Grid.Row="0" Grid.Column="0" 
+                                           WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                                    <Label Text="{Binding LeftLabel1}" Grid.Row="0" Grid.Column="1" Margin="5" TextColor="White" 
+                                           FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
+
+                                    <Image Source="{Binding LeftIcon2}" Grid.Row="1" Grid.Column="0" 
+                                           WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                                    <Label Text="{Binding LeftLabel2}" Grid.Row="1" Grid.Column="1" Margin="5" TextColor="White" 
+                                               FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
+
+                                    <Image Source="{Binding LeftIcon3}" Grid.Row="2" Grid.Column="0" 
+                                           WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                                    <Label Text="{Binding LeftLabel3}" Grid.Row="2" Grid.Column="1" Margin="5" TextColor="White"
+                                           FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
+
+                                    <!--coluna direita com os icones e descrições de cada suite-->
+
+                                    <Image Source="{Binding RightIcon1}" Grid.Row="0" Grid.Column="2" 
+                                            WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                                    <Label Text="{Binding RightLabel1}" Grid.Row="0" Grid.Column="3" Margin="5" TextColor="White" 
+                                            FontAttributes="Bold" FontSize="12" VerticalOptions="Center" />
+
+                                    <Image Source="{Binding RightIcon2}" Grid.Row="1" Grid.Column="2" 
+                                            WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                                    <Label Text="{Binding RightLabel2}" Grid.Row="1" Grid.Column="3" Margin="5" TextColor="White" 
+                                            FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
+
+                                    <Image Source="{Binding RightIcon3}" Grid.Row="2" Grid.Column="2" 
+                                            WidthRequest="20" HeightRequest="20" VerticalOptions="Center"/>
+                                    <Label Text="{Binding RightLabel3}" Grid.Row="2" Grid.Column="3" Margin="5" TextColor="White" 
+                                            FontAttributes="Bold" FontSize="12" VerticalOptions="Center"/>
+
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </ContentView>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <StackLayout Grid.Row="1">
+
+            <Button Text="Voltar"
+                    Margin="10"
+                    BorderColor="Transparent"
+                    Clicked="Button_Clicked"/>
+            
+        </StackLayout>
+
+    </Grid>
+</ContentPage>
